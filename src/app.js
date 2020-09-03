@@ -1,9 +1,7 @@
-const App = () => {
-  return (
-    <h1>
-      Hello World!
-    </h1>
-  )
-}
+import React from "react";
 
-ReactDOM.render(<App />, document.getElementById('root'))
+const App = () => {
+  return <h1>Hello World!</h1>;
+};
+
+export default App;
