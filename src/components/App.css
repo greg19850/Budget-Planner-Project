@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+
+body {
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+  color: #444;
+  font-size: 25px;
+  margin: 0;
+  padding: 0;
+}
+.wrapper {
+  min-height: 100vh;
+  width: 90vw;
+  margin: 0 auto;
+  background-color: whitesmoke;
+}
+#summary {
+  display: flex;
+  min-height: 200px;
+  margin-bottom: 10px;
+}
+#summary .moneySummary {
+  flex-basis: 20%;
+  text-align: center;
+}
+#summary .moneySummary div {
+  margin-top: 5px;
+  padding: 15px 0 10px 0;
+}
+
+#summary .graphic {
+  flex-basis: 80%;
+  align-self: center;
+  text-align: center;
+}
+
+.moneySummary div {
+  font-size: 25px;
+  border-radius: 5px;
+  box-shadow: 5px 10px #ccc;
+}
+
+.fa-chart-line {
+  color: green;
+}
+.fa-cart-arrow-down {
+  color: red;
+}
+.fa-balance-scale {
+  color: tomato;
+}
+
+#buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+button {
+  margin-top: 20px;
+  padding: 20px 35px;
+  background: inherit;
+  border: 1px solid #444;
+  color: #444;
+  font-size: 26px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-family: "Lato", sans-serif;
+  transition: all 0.5s linear;
+}
+
+button:hover {
+  color: white;
+  background: #444;
+}
+
+.fa-coins {
+  font-size: 35px;
+}
+
+.fa-donate {
+  font-size: 35px;
+}
