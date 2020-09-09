@@ -1,7 +1,7 @@
 {
   "name": "Budget-Planner",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "Index.js",
   "repository": "https://github.com/greg19850/Budget-Planner-Project.git",
   "author": "Greg Mrowczynski <greg19850@gmail.com>",
   "license": "MIT",
