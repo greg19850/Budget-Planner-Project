@@ -1,4 +1,5 @@
 import React from "react";
+import "./Balance.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBalanceScale } from "@fortawesome/free-solid-svg-icons";
 

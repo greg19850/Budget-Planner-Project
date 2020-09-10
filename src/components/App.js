@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
-import IncomeSummary from "./summaryBoxes/IncomeSummary";
-import ExpenseSummary from "./summaryBoxes/ExpenseSummary";
+import IncomeSummary from "./incomeSummary/IncomeSummary";
+import ExpenseSummary from "./expenseSummary/ExpenseSummary";
 import Balance from "./balance/Balance";
-import AddIncomeButton from "./buttons/AddIncomeButton";
-import AddExpenseButton from "./buttons/AddExpenseButton";
+import AddIncomeButton from "./incomeButton/AddIncomeButton";
+import AddExpenseButton from "./expenseButton/AddExpenseButton";
 import AllTransactions from "./transactions/AllTransactions";
 import Graphic from "./graphics/Graphic";
 

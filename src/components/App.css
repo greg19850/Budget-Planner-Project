@@ -46,9 +46,6 @@ body {
 .fa-cart-arrow-down {
   color: red;
 }
-.fa-balance-scale {
-  color: tomato;
-}
 
 #buttons {
   display: flex;
