@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
-import IncomeSummary from "./IncomeSummary";
-import ExpenseSummary from "./ExpenseSummary";
-import Balance from "./Balance";
-import AddIncomeButton from "./AddIncomeButton";
-import AddExpenseButton from "./AddExpenseButton";
-import AllTransactions from "./AllTransactions";
-import Graphic from "./Graphic";
+import IncomeSummary from "./summary/IncomeSummary";
+import ExpenseSummary from "./summary/ExpenseSummary";
+import Balance from "./balance/Balance";
+import AddIncomeButton from "./buttons/AddIncomeButton";
+import AddExpenseButton from "./buttons/AddExpenseButton";
+import AllTransactions from "./transactions/AllTransactions";
+import Graphic from "./graphics/Graphic";
 
 class App extends Component {
   state = {
