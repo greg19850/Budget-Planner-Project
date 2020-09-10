@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
-import IncomeSummary from "./summary/IncomeSummary";
-import ExpenseSummary from "./summary/ExpenseSummary";
+import IncomeSummary from "./summaryBoxes/IncomeSummary";
+import ExpenseSummary from "./summaryBoxes/ExpenseSummary";
 import Balance from "./balance/Balance";
 import AddIncomeButton from "./buttons/AddIncomeButton";
 import AddExpenseButton from "./buttons/AddExpenseButton";
