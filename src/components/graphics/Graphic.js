@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./Graphic.css";
 const Graphic = (props) => {
   const month = new Date().toLocaleString("default", { month: "long" });
   const year = new Date().getFullYear();

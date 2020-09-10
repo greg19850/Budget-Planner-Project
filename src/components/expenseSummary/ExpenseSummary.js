@@ -1,4 +1,5 @@
 import React from "react";
+import "./ExpenseSummary.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartArrowDown } from "@fortawesome/free-solid-svg-icons";
 
