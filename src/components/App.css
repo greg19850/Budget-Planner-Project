@@ -29,7 +29,7 @@ body {
 }
 
 #summary .graphic {
-  flex-basis: 80%;
+  flex-grow: 1;
   align-self: center;
   text-align: center;
 }
@@ -38,13 +38,6 @@ body {
   font-size: 25px;
   border-radius: 5px;
   box-shadow: 5px 10px #ccc;
-}
-
-.fa-chart-line {
-  color: green;
-}
-.fa-cart-arrow-down {
-  color: red;
 }
 
 #buttons {
@@ -70,12 +63,4 @@ button {
 button:hover {
   color: white;
   background: #444;
-}
-
-.fa-coins {
-  font-size: 35px;
-}
-
-.fa-donate {
-  font-size: 35px;
 }
