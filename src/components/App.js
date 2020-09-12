@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
+import Menu from "./menu/Menu";
 import IncomeSummary from "./incomeSummary/IncomeSummary";
 import ExpenseSummary from "./expenseSummary/ExpenseSummary";
 import Balance from "./balance/Balance";
 import AddIncomeButton from "./incomeButton/AddIncomeButton";
 import AddExpenseButton from "./expenseButton/AddExpenseButton";
-import AllTransactions from "./transactions/AllTransactions";
 import Graphic from "./graphics/Graphic";
 
 class App extends Component {
@@ -19,6 +19,9 @@ class App extends Component {
 
     return (
       <div className="wrapper">
+        <nav>
+          <Menu />
+        </nav>
         <section id="summary">
           <div className="moneySummary">
             <IncomeSummary income={income} />
@@ -33,7 +36,6 @@ class App extends Component {
           <AddIncomeButton />
           <AddExpenseButton />
         </section>
-        <AllTransactions />
       </div>
     );
   }

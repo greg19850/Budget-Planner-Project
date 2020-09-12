@@ -5,10 +5,9 @@ import { faWallet } from "@fortawesome/free-solid-svg-icons";
 
 const AllTransactions = (props) => (
   <>
-    <h2>
-      <FontAwesomeIcon icon={faWallet} /> Transactions list:
-    </h2>
-    <ul></ul>
+    <li>
+      Transactions list <FontAwesomeIcon icon={faWallet} />
+    </li>
   </>
 );
 
