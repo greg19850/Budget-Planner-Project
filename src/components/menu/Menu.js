@@ -5,27 +5,32 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { faCoins } from "@fortawesome/free-solid-svg-icons";
 import { faDonate } from "@fortawesome/free-solid-svg-icons";
 import { faWallet } from "@fortawesome/free-solid-svg-icons";
+import { NavLink, Link } from "react-router-dom";
 
 const Menu = () => (
   <ul>
     <li>
-      Start <FontAwesomeIcon icon={faHome} />
+      <NavLink to="/" exact>
+        Start <FontAwesomeIcon icon={faHome} />
+      </NavLink>
     </li>
     <li>
-      Add Income <FontAwesomeIcon icon={faCoins} />
+      <NavLink to="/income">
+        Add Income
+        <FontAwesomeIcon icon={faCoins} />
+      </NavLink>
     </li>
     <li>
-      Add Expense <FontAwesomeIcon icon={faDonate} />
+      <NavLink to="/expense">
+        Add Expense <FontAwesomeIcon icon={faDonate} />
+      </NavLink>
     </li>
     <li>
-      Show transactions <FontAwesomeIcon icon={faWallet} />
+      <NavLink to="/transactions">
+        Show transactions <FontAwesomeIcon icon={faWallet} />
+      </NavLink>
     </li>
   </ul>
 );
 
 export default Menu;
-
-// {<Start />}
-// {<AddIncome />}
-// {<AddExpense />}
-// {<AllTransactions />}

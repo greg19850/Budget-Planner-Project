@@ -5,10 +5,7 @@ import Start from "./start/Start";
 import AddIncome from "./addIncome/AddIncome";
 import AddExpense from "./addExpense/AddExpense";
 import AllTransactions from "./transactions/AllTransactions";
-import IncomeSummary from "./incomeSummary/IncomeSummary";
-import ExpenseSummary from "./expenseSummary/ExpenseSummary";
-import Balance from "./balance/Balance";
-import Graphic from "./graphics/Graphic";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
   state = {
@@ -20,21 +17,42 @@ class App extends Component {
     const { income, expense, balance } = this.state;
 
     return (
-      <div className="wrapper">
-        <nav>
-          <Menu />
-        </nav>
-        <section id="summary">
-          <div className="moneySummary">
-            <IncomeSummary income={income} />
-            <ExpenseSummary expense={expense} />
-            <Balance balance={balance} />
-          </div>
-          <div className="graphic">
-            <Graphic />
-          </div>
-        </section>
-      </div>
+      <Router>
+        <div className="wrapper">
+          <nav>
+            <Menu />
+          </nav>
+          <main>
+            <Route path="/" exact>
+              <Start income={income} expense={expense} balance={balance} />
+            </Route>
+            <Route path="/income">
+              <AddIncome />
+            </Route>
+            <Route path="/expense">
+              <AddExpense />
+            </Route>
+            <Route path="/transactions">
+              <AllTransactions />
+            </Route>
+          </main>
+          <footer>
+            <div>
+              Icons made by{" "}
+              <a
+                href="https://www.flaticon.com/authors/freepik"
+                title="Freepik"
+              >
+                Freepik
+              </a>{" "}
+              from{" "}
+              <a href="https://www.flaticon.com/" title="Flaticon">
+                www.flaticon.com
+              </a>
+            </div>
+          </footer>
+        </div>
+      </Router>
     );
   }
 }
