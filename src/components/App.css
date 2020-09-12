@@ -10,27 +10,28 @@ body {
   padding: 0;
 }
 .wrapper {
-  min-height: 100vh;
-  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  width: 95vw;
   margin: 0 auto;
   background-color: whitesmoke;
 }
 #summary {
   display: flex;
-  min-height: 200px;
-  margin-bottom: 10px;
+  height: 82vh;
+  margin-bottom: 5px;
 }
 #summary .moneySummary {
-  flex-basis: 20%;
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  justify-content: space-evenly;
 }
-#summary .moneySummary div {
-  margin-top: 5px;
-  padding: 15px 0 10px 0;
-}
-
 .moneySummary div {
-  font-size: 25px;
+  margin: 15px 0 0 5px;
+  padding: 20px;
+  font-size: 32px;
   border-radius: 5px;
   box-shadow: 5px 10px #ccc;
 }

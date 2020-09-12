@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
 import Menu from "./menu/Menu";
+import Start from "./start/Start";
+import AddIncome from "./addIncome/AddIncome";
+import AddExpense from "./addExpense/AddExpense";
+import AllTransactions from "./transactions/AllTransactions";
 import IncomeSummary from "./incomeSummary/IncomeSummary";
 import ExpenseSummary from "./expenseSummary/ExpenseSummary";
 import Balance from "./balance/Balance";

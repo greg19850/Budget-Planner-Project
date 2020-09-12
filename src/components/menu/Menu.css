@@ -13,8 +13,16 @@ li {
   align-items: center;
   justify-content: space-evenly;
   flex-grow: 1;
-  height: 100px;
+  height: 12vh;
   text-transform: uppercase;
   border: solid 1px #fff;
+  border-bottom: solid 4px #444;
+}
+
+li:hover {
   border-bottom: solid 4px red;
+}
+
+.svg-inline--fa {
+  font-size: 35px;
 }
