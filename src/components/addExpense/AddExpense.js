@@ -6,7 +6,7 @@ import { faDonate } from "@fortawesome/free-solid-svg-icons";
 const AddExpense = (props) => {
   return (
     <li>
-      Add Income <FontAwesomeIcon icon={faDonate} />
+      Add Expense <FontAwesomeIcon icon={faDonate} />
     </li>
   );
 };

@@ -4,8 +4,6 @@ import Menu from "./menu/Menu";
 import IncomeSummary from "./incomeSummary/IncomeSummary";
 import ExpenseSummary from "./expenseSummary/ExpenseSummary";
 import Balance from "./balance/Balance";
-import AddIncomeButton from "./incomeButton/AddIncomeButton";
-import AddExpenseButton from "./expenseButton/AddExpenseButton";
 import Graphic from "./graphics/Graphic";
 
 class App extends Component {
@@ -31,10 +29,6 @@ class App extends Component {
           <div className="graphic">
             <Graphic />
           </div>
-        </section>
-        <section id="buttons">
-          <AddIncomeButton />
-          <AddExpenseButton />
         </section>
       </div>
     );
