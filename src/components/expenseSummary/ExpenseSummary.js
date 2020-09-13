@@ -1,12 +1,11 @@
 import React from "react";
 import "./ExpenseSummary.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartArrowDown } from "@fortawesome/free-solid-svg-icons";
+import expense from "../../img/expense.svg";
 
 const ExpenseSummary = (props) => {
   return (
     <div>
-      <FontAwesomeIcon icon={faCartArrowDown} />
+      <img src={expense} alt="expense Logo" />
       <br />
       Expense
       <br />${props.expense}

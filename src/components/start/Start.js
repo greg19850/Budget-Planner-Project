@@ -14,7 +14,7 @@ const Start = (props) => {
         <Balance balance={props.balance} />
       </div>
       <div className="graphic">
-        <Graphic />
+        <Graphic income={props.income} expense={props.expense} />
       </div>
     </section>
   );

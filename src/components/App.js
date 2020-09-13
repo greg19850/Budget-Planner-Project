@@ -5,12 +5,13 @@ import Start from "./start/Start";
 import AddIncome from "./addIncome/AddIncome";
 import AddExpense from "./addExpense/AddExpense";
 import AllTransactions from "./transactions/AllTransactions";
+import Attribute from "./attributes/Attribute";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
   state = {
-    income: "0.00",
-    expense: "0.00",
+    income: 50,
+    expense: 50,
     balance: "0.00",
   };
   render() {
@@ -36,6 +37,9 @@ class App extends Component {
               <AllTransactions />
             </Route>
           </main>
+          <footer>
+            <Attribute />
+          </footer>
         </div>
       </Router>
     );

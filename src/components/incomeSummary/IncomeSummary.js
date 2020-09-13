@@ -1,15 +1,14 @@
 import React from "react";
 import "./IncomeSummary.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChartLine } from "@fortawesome/free-solid-svg-icons";
+import growth from "../../img/Growth.svg";
 
 const IncomeSummary = (props) => {
   return (
     <div>
-      <FontAwesomeIcon icon={faChartLine} />
+      <img src={growth} alt="income Logo" />
       <br />
       Income
-      <br />${props.income}
+      <br /> ${props.income}
     </div>
   );
 };

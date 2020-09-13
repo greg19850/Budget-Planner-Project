@@ -1,12 +1,11 @@
 import React from "react";
 import "./Balance.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBalanceScale } from "@fortawesome/free-solid-svg-icons";
+import balance from "../../img/balance.svg";
 
 const Balance = (props) => {
   return (
     <div>
-      <FontAwesomeIcon icon={faBalanceScale} />
+      <img src={balance} alt="balance Logo" />
       <br />
       Balance
       <br />${props.balance}

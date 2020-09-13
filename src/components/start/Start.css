@@ -1,7 +1,14 @@
 #summary {
   display: flex;
-  height: 78vh;
+  max-height: 73vh;
   margin-bottom: 5px;
+}
+
+#summary .graphic {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: center;
 }
 .moneySummary {
   display: flex;
@@ -12,7 +19,11 @@
 .moneySummary div {
   margin: 15px 0 0 5px;
   padding: 20px;
-  font-size: 32px;
+  font-size: 35px;
   border-radius: 5px;
   box-shadow: 5px 10px #ccc;
+}
+
+.moneySummary div img {
+  width: 25%;
 }
