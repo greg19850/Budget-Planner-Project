@@ -1,33 +1,31 @@
 import React from "react";
 import "./Menu.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { faCoins } from "@fortawesome/free-solid-svg-icons";
-import { faDonate } from "@fortawesome/free-solid-svg-icons";
-import { faWallet } from "@fortawesome/free-solid-svg-icons";
-import { NavLink, Link } from "react-router-dom";
+import startMenu from "../../img/startMenu.svg";
+import incomeMenuIcon from "../../img/incomeMenuIcon.svg";
+import expenseMenuIcon from "../../img/expenseMenuIcon.svg";
+import wallet from "../../img/wallet.svg";
+import { NavLink } from "react-router-dom";
 
 const Menu = () => (
   <ul>
     <li>
       <NavLink to="/" exact>
-        Start <FontAwesomeIcon icon={faHome} />
+        Start <img src={startMenu} alt="start logo" />
       </NavLink>
     </li>
     <li>
       <NavLink to="/income">
-        Add Income
-        <FontAwesomeIcon icon={faCoins} />
+        Add Income <img src={incomeMenuIcon} alt="income logo" />
       </NavLink>
     </li>
     <li>
       <NavLink to="/expense">
-        Add Expense <FontAwesomeIcon icon={faDonate} />
+        Add Expense <img src={expenseMenuIcon} alt="expense logo" />
       </NavLink>
     </li>
     <li>
       <NavLink to="/transactions">
-        Show transactions <FontAwesomeIcon icon={faWallet} />
+        Show transactions <img src={wallet} alt="wallet logo" />
       </NavLink>
     </li>
   </ul>
