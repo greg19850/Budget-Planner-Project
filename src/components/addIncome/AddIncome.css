@@ -1,1 +1,9 @@
+* {
+  box-sizing: border-box;
+}
 
+h2 {
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  text-align: center;
+}
