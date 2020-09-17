@@ -28,7 +28,7 @@ class IncomeForm extends Component {
     return (
       <form>
         <label>
-          Enter Amount a:
+          Enter Amount:
           <input type="text" id="amount" value={this.state.amount} />
         </label>
         <label>
