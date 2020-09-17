@@ -17,8 +17,8 @@
   "plugins": ["react"],
   "rules": {
     // "linebreak-style": ["warn", "unix"],
-    // "quotes": ["warn", "double"],
-    // "semi": ["warn", "always"],
+    "quotes": ["warn", "double"],
+    "semi": ["warn", "always"],
 
     // override default options for rules from base configurations
     // "comma-dangle": ["error", "always"],
