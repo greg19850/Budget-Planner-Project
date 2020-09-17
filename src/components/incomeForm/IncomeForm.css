@@ -15,7 +15,7 @@ form {
 label {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 60%;
   font-size: 40px;
   margin-bottom: 10px;
   padding-bottom: 10px;
@@ -24,7 +24,7 @@ label {
 label input,
 select {
   flex-basis: 30px;
-  width: 50%;
+  width: 100%;
   padding: 10px;
   font-size: 20px;
   border: 2px solid #f0f0f0;
@@ -32,6 +32,7 @@ select {
 }
 
 label textarea {
+  width: 600px;
   padding: 10px;
   font-size: 20px;
   border: 2px solid #f0f0f0;
@@ -50,4 +51,8 @@ label select {
   width: 50%;
   padding: 10px;
   font-size: 20px;
+}
+
+.react-datepicker-time__input {
+  width: 150px !important;
 }
