@@ -9,14 +9,10 @@ class IncomeForm extends Component {
     amount: "",
     category: "Salary",
     startDate: new Date(),
-    text: "",
+    description: "",
   };
 
-  handleCategoryChange = (e) => {
-    this.setState({
-      category: e.target.value,
-    });
-  };
+  handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
   handleDateChange = (date) => {
     this.setState({
@@ -24,19 +20,34 @@ class IncomeForm extends Component {
     });
   };
 
+  handleFormSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  cancelFormSubmit = (e) => {
+    e.preventDefault();
+  };
+
   render() {
     return (
       <form>
         <label>
           Enter Amount:
-          <input type="text" id="amount" value={this.state.amount} />
+          <input
+            type="number"
+            name="amount"
+            id="amount"
+            value={this.state.amount}
+            onChange={this.handleChange}
+          />
         </label>
         <label>
           Category:
           <select
             id="category"
+            name="category"
             value={this.state.category}
-            onChange={this.handleCategoryChange}
+            onChange={this.handleChange}
           >
             <option value="Salary">Salary</option>
             <option value="Loan">Loan</option>
@@ -47,6 +58,7 @@ class IncomeForm extends Component {
           Date and Time:
           <DatePicker
             selected={this.state.startDate}
+            name="date"
             onChange={this.handleDateChange}
             timeInputLabel="Time:"
             dateFormat="dd/MM/yyyy h:mm aa"
@@ -55,12 +67,17 @@ class IncomeForm extends Component {
         </label>
         <label>
           Description:
-          <textarea id="description"></textarea>
+          <textarea
+            id="description"
+            name="description"
+            value={this.state.text}
+            onChange={this.handleChange}
+          ></textarea>
         </label>
 
         <section className="buttons">
-          <button>Save</button>
-          <button>Cancel</button>
+          <button onClick={this.handleFormSubmit}>Save</button>
+          <button onClick-={this.cancelFormSubmit}>Cancel</button>
         </section>
       </form>
     );
