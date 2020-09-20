@@ -10,17 +10,10 @@ import Attribute from "./attributes/Attribute";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { Provider } from "react-redux";
-import store from "./Store";
+import store from "../store";
 
 class App extends Component {
-  state = {
-    income: 50,
-    expense: 50,
-    balance: "0.00",
-  };
   render() {
-    const { income, expense, balance } = this.state;
-
     return (
       <Provider store={store}>
         <Router>
@@ -31,10 +24,10 @@ class App extends Component {
             <main>
               <Switch>
                 <Route path="/" exact>
-                  <Start income={income} expense={expense} balance={balance} />
+                  <Start />
                 </Route>
                 <Route path="/income">
-                  <AddIncome income={income} balance={balance} />
+                  <AddIncome />
                 </Route>
                 <Route path="/expense">
                   <AddExpense />

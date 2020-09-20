@@ -1,4 +1,8 @@
-const { combineReducers } = require("redux");
-
 import { combineReducers } from "redux";
-import incomeAmountReducer from "./incomeAmountReducer";
+import accountSummaryReduer from "./accountSummaryReducer";
+
+const rootReducer = combineReducers({
+  accountSummary: accountSummaryReduer,
+});
+
+export default rootReducer;
