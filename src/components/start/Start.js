@@ -1,46 +1,28 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Start.css";
 import IncomeSummary from "../incomeSummary/IncomeSummary";
 import ExpenseSummary from "../expenseSummary/ExpenseSummary";
 import Balance from "../balance/Balance";
 import Graphic from "../graphics/Graphic";
 
-import { connect } from "react-redux";
-import { getItems } from "../../actions/accountSummaryActions";
-import PropTypes from "prop-types";
+import { useSelector } from "react-redux";
 
-class Start extends Component {
-  componentDidMount() {
-    this.props.getItems();
-  }
+const Start = () => {
+  const income = useSelector((state) => state.accountSummary.incomeSummary);
+  const expense = useSelector((state) => state.accountSummary.expenseSummary);
+  const balance = useSelector((state) => state.accountSummary.balanceSummary);
 
-  render() {
-    const { summary } = this.props;
-    return (
-      <section id="summary">
-        <div className="moneySummary">
-          <IncomeSummary income={summary.incomeSummary} />
-          <ExpenseSummary expense={summary.expenseSummary} />
-          <Balance balance={summary.balanceSummary} />
-        </div>
-        <div className="graphic">
-          <Graphic
-            income={summary.incomeSummary}
-            expense={summary.expenseSummary}
-          />
-        </div>
-      </section>
-    );
-  }
-}
-
-Start.propTypes = {
-  getItems: PropTypes.func.isRequired,
-  summary: PropTypes.object.isRequired,
+  return (
+    <section id="summary">
+      <div className="moneySummary">
+        <IncomeSummary income={income} />
+        <ExpenseSummary expense={expense} />
+        <Balance balance={balance} />
+      </div>
+      <div className="graphic">
+        <Graphic income={income} expense={expense} />
+      </div>
+    </section>
+  );
 };
-
-const mapStateToProps = (state) => ({
-  summary: state.accountSummary,
-});
-
-export default connect(mapStateToProps, { getItems })(Start);
+export default Start;

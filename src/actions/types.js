@@ -1,6 +1,8 @@
+export const GET_SUMMARY = "GET_SUMMARY";
 export const ADD_INCOME = "ADD_INCOME";
 export const ADD_EXPENSE = "ADD_EXPENSE";
-export const BALANCE = "UPDATE_BALANCE";
+export const UPDATE_BALANCE = "UPDATE_BALANCE";
+export const GET_INCOME_FORM = "GET_INCOME_FORM";
 export const ADD_INCOME_AMOUNT = "ADD_INCOME_AMOUNT";
 export const ADD_INCOME_CATEGORY = "ADD_INCOME_CATEGORY";
 export const ADD_INCOME_DATE = "ADD_INCOME_DATE";

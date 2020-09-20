@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
-import accountSummaryReduer from "./accountSummaryReducer";
+import accountSummaryReducer from "./accountSummaryReducer";
+import incomeFormReducer from "./incomeFormReducer";
 
 const rootReducer = combineReducers({
-  accountSummary: accountSummaryReduer,
+  accountSummary: accountSummaryReducer,
+  incomeForm: incomeFormReducer,
 });
 
 export default rootReducer;

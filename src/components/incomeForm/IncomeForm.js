@@ -1,87 +1,94 @@
-import React, { Component } from "react";
+import React from "react";
 import "./IncomeForm.css";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-class IncomeForm extends Component {
-  state = {
-    amount: "",
-    category: "Salary",
-    startDate: new Date(),
-    description: "",
-  };
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addIncomeAmount,
+  addIncomeCategory,
+  addIncomeDate,
+  addIncomeDescription,
+} from "../../actions/incomeFormActions";
 
-  handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
+const IncomeForm = () => {
+  const amount = useSelector((state) => state.incomeForm.incomeAmount);
+  const category = useSelector((state) => state.incomeForm.incomeCategory);
+  const date = useSelector((state) => state.incomeForm.incomeDate);
+  const description = useSelector(
+    (state) => state.incomeForm.incomeDescription
+  );
+  const dispatch = useDispatch();
 
-  handleDateChange = (date) => {
-    this.setState({
-      startDate: date,
-    });
-  };
+  // handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
-  handleFormSubmit = (e) => {
-    e.preventDefault();
-  };
+  // handleDateChange = (date) => {
+  //   this.setState({
+  //     startDate: date,
+  //   });
+  // };
 
-  cancelFormSubmit = (e) => {
-    e.preventDefault();
-  };
+  // handleFormSubmit = (e) => {
+  //   e.preventDefault();
+  // };
 
-  render() {
-    return (
-      <form>
-        <label>
-          Enter Amount:
-          <input
-            type="number"
-            name="amount"
-            id="amount"
-            value={this.state.amount}
-            onChange={this.handleChange}
-          />
-        </label>
-        <label>
-          Category:
-          <select
-            id="category"
-            name="category"
-            value={this.state.category}
-            onChange={this.handleChange}
-          >
-            <option value="Salary">Salary</option>
-            <option value="Loan">Loan</option>
-            <option value="Other">Other</option>
-          </select>
-        </label>
-        <label>
-          Date and Time:
-          <DatePicker
-            selected={this.state.startDate}
-            name="date"
-            onChange={this.handleDateChange}
-            timeInputLabel="Time:"
-            dateFormat="dd/MM/yyyy h:mm aa"
-            showTimeInput
-          />
-        </label>
-        <label>
-          Description:
-          <textarea
-            id="description"
-            name="description"
-            value={this.state.text}
-            onChange={this.handleChange}
-          ></textarea>
-        </label>
+  // cancelFormSubmit = (e) => {
+  //   e.preventDefault();
+  // };
 
-        <section className="buttons">
-          <button onClick={this.handleFormSubmit}>Save</button>
-          <button onClick-={this.cancelFormSubmit}>Cancel</button>
-        </section>
-      </form>
-    );
-  }
-}
+  return (
+    <form>
+      <label>
+        Enter Amount:
+        <input
+          type="number"
+          name="amount"
+          id="amount"
+          value={amount}
+          onChange={() => dispatch(addIncomeAmount)}
+        />
+      </label>
+      <label>
+        Category:
+        <select
+          id="category"
+          name="category"
+          value={category}
+          onChange={() => dispatch(addIncomeCategory)}
+        >
+          <option value="Salary">Salary</option>
+          <option value="Loan">Loan</option>
+          <option value="Other">Other</option>
+        </select>
+      </label>
+      <label>
+        Date and Time:
+        <DatePicker
+          selected={date}
+          name="date"
+          onChange={() => dispatch(addIncomeDate)}
+          timeInputLabel="Time:"
+          dateFormat="dd/MM/yyyy h:mm aa"
+          showTimeInput
+        />
+      </label>
+      <label>
+        Description:
+        <textarea
+          id="description"
+          name="description"
+          value={description}
+          onChange={() => dispatch(addIncomeDescription)}
+        ></textarea>
+      </label>
+
+      <section className="buttons">
+        <button>Save</button>
+        <button>Cancel</button>
+      </section>
+    </form>
+  );
+};
 
 export default IncomeForm;
