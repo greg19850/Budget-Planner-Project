@@ -1,94 +1,59 @@
 import React from "react";
+import { Field, reduxForm } from "redux-form";
 import "./IncomeForm.css";
 
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import DatePicker, {
+  FieldDatePicker,
+  formatDates,
+  normalizeDates,
+} from "../DatePicker/DatePicker";
 
-import { useSelector, useDispatch } from "react-redux";
-import {
-  addIncomeAmount,
-  addIncomeCategory,
-  addIncomeDate,
-  addIncomeDescription,
-} from "../../actions/incomeFormActions";
-
-const IncomeForm = () => {
-  const amount = useSelector((state) => state.incomeForm.incomeAmount);
-  const category = useSelector((state) => state.incomeForm.incomeCategory);
-  const date = useSelector((state) => state.incomeForm.incomeDate);
-  const description = useSelector(
-    (state) => state.incomeForm.incomeDescription
-  );
-  const dispatch = useDispatch();
-
-  // handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
-
-  // handleDateChange = (date) => {
-  //   this.setState({
-  //     startDate: date,
-  //   });
-  // };
-
-  // handleFormSubmit = (e) => {
-  //   e.preventDefault();
-  // };
-
-  // cancelFormSubmit = (e) => {
-  //   e.preventDefault();
-  // };
+const IncomeFormFunc = (props) => {
+  const { handleSubmit } = props;
 
   return (
-    <form>
-      <label>
-        Enter Amount:
-        <input
-          type="number"
-          name="amount"
-          id="amount"
-          value={amount}
-          onChange={() => dispatch(addIncomeAmount)}
-        />
-      </label>
-      <label>
-        Category:
-        <select
-          id="category"
-          name="category"
-          value={category}
-          onChange={() => dispatch(addIncomeCategory)}
-        >
-          <option value="Salary">Salary</option>
-          <option value="Loan">Loan</option>
-          <option value="Other">Other</option>
-        </select>
-      </label>
-      <label>
-        Date and Time:
-        <DatePicker
-          selected={date}
-          name="date"
-          onChange={() => dispatch(addIncomeDate)}
-          timeInputLabel="Time:"
-          dateFormat="dd/MM/yyyy h:mm aa"
-          showTimeInput
-        />
-      </label>
-      <label>
-        Description:
-        <textarea
-          id="description"
-          name="description"
-          value={description}
-          onChange={() => dispatch(addIncomeDescription)}
-        ></textarea>
-      </label>
-
-      <section className="buttons">
-        <button>Save</button>
-        <button>Cancel</button>
-      </section>
+    <form onSubmit={handleSubmit}>
+      <div className="formControl">
+        <label>
+          Enter Amount:
+          <Field id="amount" name="amount" component="input" type="number" />
+        </label>
+      </div>
+      <div className="formControl">
+        <label>
+          Category:
+          <Field id="category" name="category" component="select">
+            <option value="Salary">Salary</option>
+            <option value="Loan">Loan</option>
+            <option value="Other">Other</option>
+          </Field>
+        </label>
+      </div>
+      <div className="formControl">
+        <label>
+          Date and Time:
+          <FieldDatePicker name="date" />
+          <Field
+            name={"dateEnd"}
+            component={DatePicker}
+            parse={normalizeDates}
+            format={formatDates}
+          />
+        </label>
+      </div>
+      <div className="formControl">
+        <label>
+          Description:
+          <Field id="description" name="description" component="textarea" />
+        </label>
+      </div>
+      <button type="submit">Submit</button>
     </form>
   );
 };
+
+const IncomeForm = reduxForm({
+  form: "incomeForm",
+})(IncomeFormFunc);
 
 export default IncomeForm;
