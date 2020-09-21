@@ -1,0 +1,48 @@
+#summary {
+  display: flex;
+  max-height: 73vh;
+  margin-bottom: 5px;
+}
+
+#summary .graphic {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: center;
+}
+.moneySummary {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-evenly;
+}
+.moneySummary div {
+  margin: 15px 0 0 5px;
+  padding: 20px;
+  font-size: 35px;
+  border-radius: 5px;
+  box-shadow: 5px 10px #ccc;
+}
+
+.moneySummary div img {
+  width: 25%;
+}
+
+@media screen and (max-width: 900px) {
+  #summary {
+    flex-direction: column;
+  }
+
+  #summary .graphic {
+    margin-top: 35px;
+    font-size: 20px;
+  }
+
+  .moneySummary {
+    flex-direction: row;
+  }
+
+  .moneySummary div {
+    font-size: 25px;
+  }
+}
