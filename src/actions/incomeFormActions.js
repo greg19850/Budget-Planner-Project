@@ -12,10 +12,9 @@ export const getIncomeForm = () => {
   };
 };
 
-export const addIncomeAmount = (value) => {
+export const addIncomeAmount = () => {
   return {
     type: ADD_INCOME_AMOUNT,
-    payload: value,
   };
 };
 
