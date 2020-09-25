@@ -26,6 +26,7 @@ class IncomeForm extends Component {
   handleFormSubmit = (e) => {
     e.preventDefault();
     this.props.addIncome(this.state.amount * 1);
+
     this.setState({
       amount: "",
       category: "Salary",
