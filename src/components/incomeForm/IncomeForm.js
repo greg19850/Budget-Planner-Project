@@ -25,7 +25,13 @@ class IncomeForm extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    this.props.addIncome(this.state.amount);
+    this.props.addIncome(this.state.amount * 1);
+    this.setState({
+      amount: "",
+      category: "Salary",
+      date: new Date(),
+      description: "",
+    });
   };
 
   handleFormFieldsReset = (e) => {
@@ -97,10 +103,6 @@ IncomeForm.propTypes = {
   addIncome: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  addIncome: (amount) => {
-    dispatch(addIncome(amount));
-  },
-});
+const mapDispatchToProps = { addIncome };
 
 export default connect(null, mapDispatchToProps)(IncomeForm);

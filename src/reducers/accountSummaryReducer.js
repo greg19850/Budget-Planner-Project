@@ -1,3 +1,5 @@
+// import ADD_INCOME from "../actions/accountSummaryActions";
+
 const initialState = {
   incomeSummary: 0,
   expenseSummary: 0,
@@ -7,7 +9,7 @@ const initialState = {
 const accountSummaryReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_INCOME":
-      return state + action.amount;
+      return { ...state, incomeSummary: state.incomeSummary + action.amount };
     default:
       return state;
   }
