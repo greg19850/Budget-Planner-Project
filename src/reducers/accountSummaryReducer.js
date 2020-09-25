@@ -1,5 +1,3 @@
-// import ADD_INCOME from "../actions/accountSummaryActions";
-
 const initialState = {
   incomeSummary: 0,
   expenseSummary: 0,

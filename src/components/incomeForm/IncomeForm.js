@@ -49,7 +49,7 @@ class IncomeForm extends Component {
     return (
       <form>
         <label>
-          Enter Amount:
+          Amount:
           <input
             type="number"
             name="amount"
