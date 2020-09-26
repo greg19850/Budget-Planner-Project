@@ -1,7 +1,6 @@
 const initialState = {
   incomeSummary: 0,
   expenseSummary: 0,
-  balanceSummary: 0,
 };
 
 const accountSummaryReducer = (state = initialState, action) => {
@@ -9,7 +8,7 @@ const accountSummaryReducer = (state = initialState, action) => {
     case "ADD_INCOME":
       return { ...state, incomeSummary: state.incomeSummary + action.amount };
     case "ADD_EXPENSE":
-      return { ...state, incomeSummary: state.expenseSummary + action.amount };
+      return { ...state, expenseSummary: state.expenseSummary + action.amount };
     default:
       return state;
   }

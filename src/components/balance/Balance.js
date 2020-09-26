@@ -2,13 +2,17 @@ import React from "react";
 import "./Balance.css";
 import balance from "../../img/balance.svg";
 
-const Balance = (props) => {
+import { useSelector } from "react-redux";
+
+const Balance = () => {
+  const income = useSelector((state) => state.accountSummary.incomeSummary);
+  const expense = useSelector((state) => state.accountSummary.expenseSummary);
   return (
     <div>
       <img src={balance} alt="balance Logo" />
       <br />
       Balance
-      <br />${props.balance}
+      <br />${income - expense}
     </div>
   );
 };

@@ -66,17 +66,19 @@ class ExpenseForm extends Component {
             value={this.state.category}
             onChange={this.handleChange}
           >
-            <option value="Clothes">Salary</option>
-            <option value="Education">Salary</option>
-            <option value="Eating Out">Loan</option>
-            <option value="Entertainment">Other</option>
-            <option value="Food">Other</option>
-            <option value="Fuel">Other</option>
-            <option value="Gift">Other</option>
-            <option value="Health">Other</option>
-            <option value="Holiday">Other</option>
-            <option value="Shopping">Other</option>
-            <option value="Travel">Other</option>
+            <option value="Bills">Bills</option>
+            <option value="Clothes">Clothes</option>
+            <option value="Education">Education</option>
+            <option value="Eating Out">Eating Out</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Food">Food</option>
+            <option value="Fuel">Fuel</option>
+            <option value="Gift">Gift</option>
+            <option value="Health">Health</option>
+            <option value="Holiday">Holiday</option>
+            <option value="Household">Household</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Travel">Travel</option>
             <option value="Other">Other</option>
           </select>
         </label>
