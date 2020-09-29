@@ -5,19 +5,24 @@ import ExpenseSummary from "../expenseSummary/ExpenseSummary";
 import Balance from "../balance/Balance";
 import Graphic from "../graphics/Graphic";
 
-const Start = (props) => {
+import { useSelector } from "react-redux";
+
+const Start = () => {
+  const income = useSelector((state) => state.accountSummary.incomeSummary);
+  const expense = useSelector((state) => state.accountSummary.expenseSummary);
+  const balance = useSelector((state) => state.accountSummary.balanceSummary);
+
   return (
     <section id="summary">
       <div className="moneySummary">
-        <IncomeSummary income={props.income} />
-        <ExpenseSummary expense={props.expense} />
-        <Balance balance={props.balance} />
+        <IncomeSummary income={income} />
+        <ExpenseSummary expense={expense} />
+        <Balance balance={balance} />
       </div>
       <div className="graphic">
-        <Graphic income={props.income} expense={props.expense} />
+        <Graphic income={income} expense={expense} />
       </div>
     </section>
   );
 };
-
 export default Start;
