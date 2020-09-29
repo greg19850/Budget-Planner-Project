@@ -25,7 +25,7 @@ class IncomeForm extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    this.props.addIncome(this.state.amount * 1);
+    this.props.addIncome(parseFloat(this.state.amount));
 
     this.setState({
       amount: "",
@@ -54,7 +54,7 @@ class IncomeForm extends Component {
             type="number"
             name="amount"
             id="amount"
-            value={this.state.amount || ""}
+            value={this.state.amount}
             onChange={this.handleChange}
           />
         </label>
