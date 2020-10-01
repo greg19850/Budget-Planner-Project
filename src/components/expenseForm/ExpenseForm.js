@@ -1,16 +1,16 @@
 import React, { Component } from "react";
-import "./IncomeForm.css";
+import "./ExpenseForm.css";
 import { connect } from "react-redux";
-import { addIncome } from "../../actions/accountSummaryActions";
+import { addExpense } from "../../actions/accountSummaryActions";
 import PropTypes from "prop-types";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-class IncomeForm extends Component {
+class ExpenseForm extends Component {
   state = {
     amount: "",
-    category: "Salary",
+    category: "Clothes",
     date: new Date(),
     description: "",
   };
@@ -25,11 +25,11 @@ class IncomeForm extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    this.props.addIncome(parseFloat(this.state.amount));
+    this.props.addExpense(parseFloat(this.state.amount));
 
     this.setState({
       amount: "",
-      category: "Salary",
+      category: "Clothes",
       date: new Date(),
       description: "",
     });
@@ -39,7 +39,7 @@ class IncomeForm extends Component {
     e.preventDefault();
     this.setState({
       amount: "",
-      category: "Salary",
+      category: "Clothes",
       date: new Date(),
       description: "",
     });
@@ -66,8 +66,19 @@ class IncomeForm extends Component {
             value={this.state.category}
             onChange={this.handleChange}
           >
-            <option value="Salary">Salary</option>
-            <option value="Loan">Loan</option>
+            <option value="Bills">Bills</option>
+            <option value="Clothes">Clothes</option>
+            <option value="Education">Education</option>
+            <option value="Eating Out">Eating Out</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Food">Food</option>
+            <option value="Fuel">Fuel</option>
+            <option value="Gift">Gift</option>
+            <option value="Health">Health</option>
+            <option value="Holiday">Holiday</option>
+            <option value="Household">Household</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Travel">Travel</option>
             <option value="Other">Other</option>
           </select>
         </label>
@@ -100,10 +111,10 @@ class IncomeForm extends Component {
   }
 }
 
-IncomeForm.propTypes = {
-  addIncome: PropTypes.func.isRequired,
+ExpenseForm.propTypes = {
+  addExpense: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = { addIncome };
+const mapDispatchToProps = { addExpense };
 
-export default connect(null, mapDispatchToProps)(IncomeForm);
+export default connect(null, mapDispatchToProps)(ExpenseForm);
