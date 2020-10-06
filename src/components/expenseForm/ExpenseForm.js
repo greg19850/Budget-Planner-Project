@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import "./ExpenseForm.css";
 import { connect } from "react-redux";
-import { addExpense } from "../../actions/accountSummaryActions";
+import {
+  addExpense,
+  addExpenseDetails,
+} from "../../actions/accountSummaryActions";
 import PropTypes from "prop-types";
 
 import DatePicker from "react-datepicker";
@@ -9,39 +12,41 @@ import "react-datepicker/dist/react-datepicker.css";
 
 class ExpenseForm extends Component {
   state = {
-    amount: "",
-    category: "Clothes",
-    date: new Date(),
-    description: "",
+    expenseAmount: "",
+    expenseCategory: "Clothes",
+    expenseDate: new Date(),
+    expenseDescription: "",
   };
 
   handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
-  handleDateChange = (date) => {
+  handleDateChange = (expenseDate) => {
     this.setState({
-      date,
+      expenseDate,
     });
   };
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    this.props.addExpense(parseFloat(this.state.amount));
+    this.props.addExpense(parseFloat(this.state.expenseAmount));
+
+    this.props.addExpenseDetails(this.state);
 
     this.setState({
-      amount: "",
-      category: "Clothes",
-      date: new Date(),
-      description: "",
+      expenseAmount: "",
+      expenseCategory: "Clothes",
+      expenseDate: new Date(),
+      expenseDescription: "",
     });
   };
 
   handleFormFieldsReset = (e) => {
     e.preventDefault();
     this.setState({
-      amount: "",
-      category: "Clothes",
-      date: new Date(),
-      description: "",
+      expenseAmount: "",
+      expenseCategory: "Clothes",
+      expenseDate: new Date(),
+      expenseDescription: "",
     });
   };
 
@@ -52,9 +57,9 @@ class ExpenseForm extends Component {
           Amount:
           <input
             type="number"
-            name="amount"
+            name="expenseAmount"
             id="amount"
-            value={this.state.amount}
+            value={this.state.expenseAmount}
             onChange={this.handleChange}
           />
         </label>
@@ -62,8 +67,8 @@ class ExpenseForm extends Component {
           Category:
           <select
             id="category"
-            name="category"
-            value={this.state.category}
+            name="expenseCategory"
+            value={this.state.expenseCategory}
             onChange={this.handleChange}
           >
             <option value="Bills">Bills</option>
@@ -85,8 +90,8 @@ class ExpenseForm extends Component {
         <label>
           Date and Time:
           <DatePicker
-            selected={this.state.date}
-            name="date"
+            selected={this.state.expenseDate}
+            name="expenseDate"
             onChange={this.handleDateChange}
             timeInputLabel="Time:"
             dateFormat="dd/MM/yyyy h:mm aa"
@@ -97,8 +102,8 @@ class ExpenseForm extends Component {
           Description:
           <textarea
             id="description"
-            name="description"
-            value={this.state.description}
+            name="expenseDescription"
+            value={this.state.expenseDescription}
             onChange={this.handleChange}
           ></textarea>
         </label>
@@ -113,8 +118,9 @@ class ExpenseForm extends Component {
 
 ExpenseForm.propTypes = {
   addExpense: PropTypes.func.isRequired,
+  addExpenseDetails: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = { addExpense };
+const mapDispatchToProps = { addExpense, addExpenseDetails };
 
 export default connect(null, mapDispatchToProps)(ExpenseForm);

@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import "./IncomeForm.css";
 import { connect } from "react-redux";
-import { addIncome } from "../../actions/accountSummaryActions";
+import {
+  addIncome,
+  addIncomeDetails,
+} from "../../actions/accountSummaryActions";
 import PropTypes from "prop-types";
 
 import DatePicker from "react-datepicker";
@@ -9,39 +12,41 @@ import "react-datepicker/dist/react-datepicker.css";
 
 class IncomeForm extends Component {
   state = {
-    amount: "",
-    category: "Salary",
-    date: new Date(),
-    description: "",
+    incomeAmount: "",
+    incomeCategory: "Salary",
+    incomeDate: new Date(),
+    incomeDescription: "",
   };
 
   handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
-  handleDateChange = (date) => {
+  handleDateChange = (incomeDate) => {
     this.setState({
-      date,
+      incomeDate,
     });
   };
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    this.props.addIncome(parseFloat(this.state.amount));
+    this.props.addIncome(parseFloat(this.state.incomeAmount));
+
+    this.props.addIncomeDetails(this.state);
 
     this.setState({
-      amount: "",
-      category: "Salary",
-      date: new Date(),
-      description: "",
+      incomeAmount: "",
+      incomeCategory: "Salary",
+      incomeDate: new Date(),
+      incomeDescription: "",
     });
   };
 
   handleFormFieldsReset = (e) => {
     e.preventDefault();
     this.setState({
-      amount: "",
-      category: "Salary",
-      date: new Date(),
-      description: "",
+      incomeAmount: "",
+      incomeCategory: "Salary",
+      incomeDate: new Date(),
+      incomeDescription: "",
     });
   };
 
@@ -52,9 +57,9 @@ class IncomeForm extends Component {
           Amount:
           <input
             type="number"
-            name="amount"
+            name="incomeAmount"
             id="amount"
-            value={this.state.amount}
+            value={this.state.incomeAmount}
             onChange={this.handleChange}
           />
         </label>
@@ -62,8 +67,8 @@ class IncomeForm extends Component {
           Category:
           <select
             id="category"
-            name="category"
-            value={this.state.category}
+            name="incomeCategory"
+            value={this.state.incomeCategory}
             onChange={this.handleChange}
           >
             <option value="Salary">Salary</option>
@@ -74,8 +79,8 @@ class IncomeForm extends Component {
         <label>
           Date and Time:
           <DatePicker
-            selected={this.state.date}
-            name="date"
+            selected={this.state.incomeDate}
+            name="incomeDate"
             onChange={this.handleDateChange}
             timeInputLabel="Time:"
             dateFormat="dd/MM/yyyy h:mm aa"
@@ -86,8 +91,8 @@ class IncomeForm extends Component {
           Description:
           <textarea
             id="description"
-            name="description"
-            value={this.state.description}
+            name="incomeDescription"
+            value={this.state.incomeDescription}
             onChange={this.handleChange}
           ></textarea>
         </label>
@@ -102,8 +107,9 @@ class IncomeForm extends Component {
 
 IncomeForm.propTypes = {
   addIncome: PropTypes.func.isRequired,
+  addIncomeDetails: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = { addIncome };
+const mapDispatchToProps = { addIncome, addIncomeDetails };
 
 export default connect(null, mapDispatchToProps)(IncomeForm);
