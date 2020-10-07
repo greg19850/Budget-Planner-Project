@@ -1,11 +1,7 @@
-import {
-  ADD_INCOME,
-  ADD_EXPENSE,
-  ADD_INCOME_DETAILS,
-  ADD_EXPENSE_DETAILS,
-} from "../actions/accountSummaryActions";
+import { ADD_INCOME, ADD_EXPENSE } from "../actions/accountSummaryActions";
 
 const initialState = {
+  id: 0,
   incomeSummary: 0,
   expenseSummary: 0,
   transactionDetails: [],
@@ -14,17 +10,17 @@ const initialState = {
 const accountSummaryReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_INCOME:
-      return { ...state, incomeSummary: state.incomeSummary + action.amount };
-    case ADD_EXPENSE:
-      return { ...state, expenseSummary: state.expenseSummary + action.amount };
-    case ADD_INCOME_DETAILS:
       return {
         ...state,
+        id: state.id + 1,
+        incomeSummary: state.incomeSummary + action.amount,
         transactionDetails: [...state.transactionDetails, action.data],
       };
-    case ADD_EXPENSE_DETAILS:
+    case ADD_EXPENSE:
       return {
         ...state,
+        id: state.id + 1,
+        expenseSummary: state.expenseSummary + action.amount,
         transactionDetails: [...state.transactionDetails, action.data],
       };
     default:

@@ -3,30 +3,18 @@ export const ADD_EXPENSE = "ADD_EXPENSE";
 export const ADD_INCOME_DETAILS = "ADD_INCOME_DETAILS";
 export const ADD_EXPENSE_DETAILS = "ADD_EXPENSE_DETAILS";
 
-export const addIncome = (amount) => {
+export const addIncome = (amount, data) => {
   return {
     type: ADD_INCOME,
     amount,
-  };
-};
-
-export const addExpense = (amount) => {
-  return {
-    type: ADD_EXPENSE,
-    amount,
-  };
-};
-
-export const addIncomeDetails = (data) => {
-  return {
-    type: ADD_INCOME_DETAILS,
     data,
   };
 };
 
-export const addExpenseDetails = (data) => {
+export const addExpense = (amount, data) => {
   return {
-    type: ADD_EXPENSE_DETAILS,
+    type: ADD_EXPENSE,
+    amount,
     data,
   };
 };

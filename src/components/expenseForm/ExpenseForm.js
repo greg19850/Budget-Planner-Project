@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import "./ExpenseForm.css";
 import { connect } from "react-redux";
-import {
-  addExpense,
-  addExpenseDetails,
-} from "../../actions/accountSummaryActions";
+import { addExpense } from "../../actions/accountSummaryActions";
 import PropTypes from "prop-types";
 
 import DatePicker from "react-datepicker";
@@ -28,9 +25,7 @@ class ExpenseForm extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    this.props.addExpense(parseFloat(this.state.expenseAmount));
-
-    this.props.addExpenseDetails(this.state);
+    this.props.addExpense(parseFloat(this.state.expenseAmount), this.state);
 
     this.setState({
       expenseAmount: "",
@@ -118,9 +113,8 @@ class ExpenseForm extends Component {
 
 ExpenseForm.propTypes = {
   addExpense: PropTypes.func.isRequired,
-  addExpenseDetails: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = { addExpense, addExpenseDetails };
+const mapDispatchToProps = { addExpense };
 
 export default connect(null, mapDispatchToProps)(ExpenseForm);

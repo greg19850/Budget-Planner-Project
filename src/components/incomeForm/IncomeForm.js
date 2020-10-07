@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import "./IncomeForm.css";
 import { connect } from "react-redux";
-import {
-  addIncome,
-  addIncomeDetails,
-} from "../../actions/accountSummaryActions";
+import { addIncome } from "../../actions/accountSummaryActions";
 import PropTypes from "prop-types";
 
 import DatePicker from "react-datepicker";
@@ -28,9 +25,7 @@ class IncomeForm extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    this.props.addIncome(parseFloat(this.state.incomeAmount));
-
-    this.props.addIncomeDetails(this.state);
+    this.props.addIncome(parseFloat(this.state.incomeAmount), this.state);
 
     this.setState({
       incomeAmount: "",
@@ -107,9 +102,8 @@ class IncomeForm extends Component {
 
 IncomeForm.propTypes = {
   addIncome: PropTypes.func.isRequired,
-  addIncomeDetails: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = { addIncome, addIncomeDetails };
+const mapDispatchToProps = { addIncome };
 
 export default connect(null, mapDispatchToProps)(IncomeForm);
